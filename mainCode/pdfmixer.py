@@ -3,6 +3,7 @@ import os
 import comtypes.client
 from PyPDF2 import PdfFileReader, PdfFileWriter, PdfFileMerger
 from fpdf import FPDF
+import datetime
 
 
 
@@ -45,10 +46,15 @@ def pdfMerge(input_files, output_stream):
 
 def receiptsMergers2PDF(recipts, mashup, final_folder):
 	files = [f for f in os.listdir(recipts) if os.path.isfile(os.path.join(recipts,f))]
-		
+	
+	month_title_split = final_folder.split("\\")
+	month_integer = month_title_split[-1].split("_")[1]
+	month_title = datetime.date(1900,int(month_integer),1).strftime("%B")
+	# month_title
+
 	for f in files:
 		fsplit = f.split(".pdf")
-		filename = fsplit[0] + " Galan Pcard" + ".pdf"
+		filename = fsplit[0] + " Galan Pcard " + month_title +".pdf"
 		print (filename)
 		pdfMerge([recipts+"/"+f, mashup], final_folder + "/" +filename)
 
