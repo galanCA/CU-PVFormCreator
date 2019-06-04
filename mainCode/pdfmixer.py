@@ -54,7 +54,7 @@ def receiptsMergers2PDF(recipts, mashup, final_folder):
 
 	for f in files:
 		fsplit = f.split(".pdf")
-		filename = fsplit[0] + " Galan Pcard " + month_title +".pdf"
+		filename = "$ " + fsplit[0] + " Items " + " Galan Pcard " + month_title +".pdf"
 		print (filename)
 		pdfMerge([recipts+"/"+f, mashup], final_folder + "/" +filename)
 
