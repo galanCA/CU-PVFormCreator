@@ -54,7 +54,7 @@ def receiptsMergers2PDF(recipts, mashup, final_folder):
 
 	for f in files:
 		fsplit = f.split(".pdf")
-		filename = "$ " + fsplit[0] + " Items " + " Galan Pcard " + month_title +".pdf"
+		filename = "$ " + fsplit[0] + " Galan Pcard " + month_title +".pdf"
 		print (filename)
 		pdfMerge([recipts+"/"+f, mashup], final_folder + "/" +filename)
 
@@ -101,8 +101,6 @@ def main():
 	mashup_file = "C:/Users/Cesar Workdesk/Documents/IRL/PV Forms/Heckman/PV Form 2019_05_10/PV/mashup.pdf"
 	'''
 	
-
-
 	## Convert PV form from word to pdf
 	word2pdf(word_file, pv_pdf_file)
 
@@ -110,10 +108,6 @@ def main():
 	pdfMerge([pv_pdf_file, email_file], mashup_file)
 
 	receiptsMergers2PDF(receipts_folder, mashup_file,folder)
-
-
-
-
 
 if __name__ == '__main__':
 	main()
